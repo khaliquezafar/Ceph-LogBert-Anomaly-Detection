@@ -1,72 +1,72 @@
-# LogBERT for Ceph Log Anomaly Detection
+# Ceph Storage Anomaly Detection Using LogBERT through Log Analysis
 
 ## 📌 Project Overview
-This project trains a self-supervised LogBERT model to detect anomalies in Ceph storage logs. It includes synthetic log generation, model training, anomaly detection, and visualization.
+
+
+
 
 ## 📂 Project Structure
 logbert_ceph_anomaly_detection/
 │── data/
-│   ├── logs/                       # Generated synthetic Ceph logs
-│   ├── processed/                  # Preprocessed log data
+│       ├───eval_data/                          # Models training historical evaluation data 
+|       ├───processed_logs/                     # Processed and tokenized dataset 
+|       │   └───tokenized_dataset/              # Tokenized dataset 
+|       └───raw_logs/                           # Synthetic Ceph logs for models training and testing 
 │── models/
-│   ├── logbert.pth                 # Trained LogBERT model
-│   ├── logbert_finetuned.pth       # Fine-tuned model
-│── results/                        # Detected anomalies output
-│── plots/                          # Visualization output
+│       ├── basemodel/                          # Base Trained LogBERT model (huggingface format)
+│       ├── finetuned_model/                    # Finetuned Trained LogBERT model (huggingface format)
+|       ├── checkpoints/                        # Models training chunk wise checkpoints directories
+│── results/                                    # Anomaly Detection output in csv file from Fine-tuned model
+│── plots/                                      # Models Metrics and performance and anomaly detection visualization 
+|       ├───model_metrics/                      # Model Metrics html dashboard
+|       └───anomaly_detection/                  # Anomaly detection html dashboard             
 │── scripts/
-│   ├── gen_training_logs.py        # Generate synthetic logs for training
-|   ├── gen_test_logs.py            # Generate synthetic logs for testing for anomaly detection  
-│   ├── preprocess.py               # Preprocess logs
-│   ├── train_logbert.py            # Train LogBERT model
-│   ├── tokenize_logs.py            # tokenize training preprocessed logs for training the model
-│   ├── generate_report.py          # Visualization of metrics and reporting
-│   ├── anomaly_detection.py        # Detection of anomalies 
-│── requirements.txt                # Python dependencies
-│── README.md                       # Project documentation
+│       ├── gen_syntetic_logs.py                # Synthetic logs generation script for model training and testing
+│       ├── preprocess_logs.py                  # Preprocess synthetic logs script for model training 
+│       ├── pretrained_mlm_model_train.py       # Base Logbert model Training script
+|       ├── finetuned_mlm_model_train.py        # Fine-tuned Logbert model Training script
+│       ├── tokenize_logs.py                    # Tokenize training preprocessed logs script for training the model
+│       ├── visualization_metrics.py            # Model metrics visualization and reporting script
+│       ├── anomalies_detection_report.py       # Detection of anomalies script using trained models
+│── requirements.txt                            # Python dependencies
+│── README.md                                   # Project documentation
 
 ## 🚀 Setup Instructions
 
-### 1️⃣ Install Dependencies
+### 1. Install Dependencies
 ```sh
 pip install -r requirements.txt
 ```
-
-### 2️⃣ Generate Synthetic Logs
+### 2.  Generate Synthetic training and testing Logs
 ```sh
-python scripts/log-gen.py
+python scripts/gen_synthetic_logs.py
 ```
-
-### 3️⃣ Preprocess Logs
+### 2.Preprocess Training Logs
 ```sh
-python scripts/preprocess.py
+python scripts/preprocess_logs.py
+python scripts/tokenize_logs.py
 ```
-
-### 4️⃣ Train LogBERT Model
+### 3. Train LogBERT Model
 ```sh
-python scripts/train_logbert.py
+python scripts/pretrained_mlm_model_train.py --chunked
 ```
-
-### 5️⃣ Fine-Tune LogBERT (Optional)
+### 4. Train Fine-Tune LogBERT Model
 ```sh
-python scripts/fine_tune_logbert.py
+python scripts/finetuned_mlm_model_train.py --chunked
 ```
-
-### 6️⃣ Detect Anomalies in New Logs
+### 5. Visualize Model Metrics and Reporting
 ```sh
-python scripts/anomaly_detection.py
-```
+python scripts/visualization_metrics.py
 
-### 7️⃣ Visualize Anomalies
+### 6. Anomaly detection and Reporting
 ```sh
-python scripts/visualize_anomalies.py
+python scripts/anomalies_detection_report.py 
 ```
-
 ## 📊 Results
-- Anomaly logs will be saved in `results/anomalies.csv`
-- A timeline plot of detected anomalies will be saved in `plots/anomaly_trend.png`
+- Anomaly inference logs will be saved in 'results' directory in the with given output csv file inference_anomalies_summary.csv ../results/inference_anomalies_summary.csv
+- Model metrics and anomaly detection html dashboard report with graphs will be saved in 'plots' directory. 
+-- Model metrics Report >> ../plots/model_metrics/metrics_visualization.html
+-- Anomaly detection Report >> ../polts/anomaly_detection/anomaly_explanation_summary.html
 
-## 🎯 Future Improvements
-- Enhance log parsing with Drain for better template extraction
-- Deploy as a real-time monitoring system
-- Integrate an alerting mechanism for detected anomalies
+
 
