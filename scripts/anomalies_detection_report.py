@@ -231,10 +231,28 @@ heatmap_html = pio.to_html(heatmap_fig, full_html=False, include_plotlyjs=False)
 # === Full HTML Report ===
 html_content = f"""
 <html><head><title>Anomaly Detection Report</title>
-<script src=\"https://cdn.plot.ly/plotly-latest.min.js\"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <style>
-.anomaly-log {{ border: 2px solid red; padding: 10px; margin: 10px 0; }}
-.normal-log {{ border: 1px solid #ccc; padding: 10px; margin: 10px 0; }}
+.anomaly-log {{
+    border: 2px solid red;
+    background-color: #ffe6e6;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}}
+.normal-log {{
+    border: 1px solid green;
+    background-color: #e6ffe6;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-size: 14px;
+}}
+body {{
+    font-family: Arial, sans-serif;
+}}
 </style></head><body>
 <h1>Anomaly Detection Report</h1>
 <h2>Total Anomalies Summary</h2>
@@ -251,7 +269,6 @@ html_content = f"""
 for i, row in df_raw.iterrows():
     div_class = "anomaly-log" if row['combined_anomaly'] else "normal-log"
     html_content += f"<div class='{div_class}'><p><strong>Log {i+1}:</strong> {row['message']}<br/>"
-    html_content += f"{row['message']}<br/>"
     html_content += f"<strong>Anomaly Score:</strong> {row['anomaly_score']:.4f} | "
     html_content += f"<strong>Confidence:</strong> {row['confidence_score']:.2f} | "
     html_content += f"<strong>MLM Prediction:</strong> {int(row['is_anomaly'])} | "

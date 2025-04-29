@@ -40,28 +40,28 @@ metrics_fig.add_trace(go.Scatter(x=df["chunk"], y=df["eval_accuracy"], mode='lin
 metrics_fig.add_trace(go.Scatter(x=df["chunk"], y=df["eval_precision"], mode='lines+markers', name="Precision"), row=1, col=2)
 metrics_fig.add_trace(go.Scatter(x=df["chunk"], y=df["eval_recall"], mode='lines+markers', name="Recall"), row=2, col=1)
 metrics_fig.add_trace(go.Scatter(x=df["chunk"], y=df["eval_f1"], mode='lines+markers', name="F1-Score"), row=2, col=2)
-metrics_fig.update_layout(height=1000, width=1600, title_text="Metrics by Chunk", showlegend=False)
+metrics_fig.update_layout(height=1000, width=1600, title_text="Metrics by Chunk Datasets", showlegend=False)
 
 # === 4. Training and Eval Loss Line Graph ===
 loss_fig = go.Figure()
-loss_fig.add_trace(go.Scatter(x=df["chunk"], y=df["avg_train_loss"], mode='lines+markers', name="Train Loss"))
-loss_fig.add_trace(go.Scatter(x=df["chunk"], y=df["eval_loss"], mode='lines+markers', name="Eval Loss"))
-loss_fig.update_layout(title="Training and Eval Loss by Chunk", xaxis_title="Chunk", yaxis_title="Loss")
+loss_fig.add_trace(go.Scatter(x=df["chunk"], y=df["avg_train_loss"], mode='lines+markers', name="Training Loss"))
+loss_fig.add_trace(go.Scatter(x=df["chunk"], y=df["eval_loss"], mode='lines+markers', name="Validation Loss"))
+loss_fig.update_layout(title="Training and Validation Loss by Chunk", xaxis_title="Chunk Datasets", yaxis_title="Training and Validation Loss")
 
 # === HTML Dashboard Generation ===
 html_output = "../plots/model_metrics/metrics_visualization.html"
 os.makedirs(os.path.dirname(html_output), exist_ok=True)
 with open(html_output, "w") as f:
-    f.write("<html><head><title>MLM Metrics Dashboard</title></head><body>")
-    f.write("<h1>MLM Metrics Interactive Dashboard</h1>")
+    f.write("<html><head><title>Ceph AD LogBERT MLM Model Performance Dashboard</title></head><body>")
+    f.write("<h1>Ceph AD LogBERT MLM Model Performance Dashboard</h1>")
     f.write("<h2>Overall Metrics Table</h2>")
     f.write(overall_metrics.to_html(index=False, border=1, classes='full-width-table'))
     f.write("<style>.full-width-table { width: 100%; border-collapse: collapse; } .full-width-table th, .full-width-table td { padding: 8px; text-align: center; }</style>")
     f.write("<h2>Overall Metrics Bar Graph</h2>")
     f.write(bar_fig.to_html(full_html=False, include_plotlyjs='cdn'))
-    f.write("<h2>Metrics by Chunk</h2>")
+    f.write("<h2>Metrics by Chunk Datasets</h2>")
     f.write(metrics_fig.to_html(full_html=False, include_plotlyjs='cdn'))
-    f.write("<h2>Training and Eval Loss by Chunk</h2>")
+    f.write("<h2>Training and Validation Loss by Chunk</h2>")
     f.write(loss_fig.to_html(full_html=False, include_plotlyjs='cdn'))
     f.write("</body></html>")
 
