@@ -10,15 +10,25 @@ import plotly.graph_objects as go
 import plotly.io as pio
 from transformers import BertTokenizer, BertForMaskedLM
 from datasets import Dataset
+import argparse
+
+# === Argument Parser ===
+parser = argparse.ArgumentParser(description="Anomaly Detection and Reporting Script")
+parser.add_argument("--log_file", type=str, default="../data/raw_logs/syn_test_ceph.log", help="Path to the log file")
+parser.add_argument("--model_dir", type=str, default="../models/finetuned_model", help="Directory path of the finetuned model")
+parser.add_argument("--output_csv", type=str, default="../results/inference_anomalies_summary.csv", help="Path to save output CSV")
+parser.add_argument("--percentile", type=int, default=70, help="Anomaly score percentile threshold")
+args = parser.parse_args()
 
 # === Config ===
-log_file_path = "../data/raw_logs/syn_test_ceph.log"
-model_dir = "../models/finetuned_model"
-output_csv = "../results/inference_anomalies_summary.csv"
+log_file_path = args.log_file
+model_dir = args.model_dir
+output_csv = args.output_csv
+percentile = args.percentile
+
 html_output_dir = "../plots/anomaly_detection"
 os.makedirs(html_output_dir, exist_ok=True)
 html_file_path = os.path.join(html_output_dir, "anomaly_explanation_summary.html")
-percentile = 70
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 TOKENIZER = BertTokenizer.from_pretrained(model_dir)
@@ -35,12 +45,12 @@ def extract_logs(log_path):
                 yield {"message": line}
     return pd.DataFrame(log_lines_generator())
 
-print("📄 Preprocessing logs...")
+print("\U0001F4C4 Preprocessing logs...")
 df_raw = extract_logs(log_file_path)
 df_raw = df_raw.dropna(subset=["message"])
 df_raw = df_raw[df_raw["message"].str.strip().astype(bool)]
 
-print("🔐 Tokenizing...")
+print("\U0001F512 Tokenizing...")
 dataset = Dataset.from_pandas(df_raw[["message"]])
 dataset = dataset.map(
     lambda x: TOKENIZER(x["message"], padding="max_length", truncation=True, max_length=MAX_LENGTH),
@@ -51,12 +61,12 @@ dataset = dataset.map(lambda x: {**x, "labels": x["input_ids"]})
 dataset.set_format(type="torch", columns=["input_ids", "attention_mask", "labels"])
 
 # === Load Trained Model ===
-print(f"📦 Loading model from: {model_dir}")
+print(f"\U0001F4E6 Loading model from: {model_dir}")
 model = BertForMaskedLM.from_pretrained(model_dir).to(DEVICE)
 model.eval()
 
 # === Score Logs ===
-print("🧲 Scoring...")
+print("\U0001F9B2 Scoring...")
 scores = []
 losses = []
 with torch.no_grad():
@@ -74,27 +84,28 @@ with torch.no_grad():
 
 scores = np.array(scores)
 threshold = np.percentile(scores, percentile)
-print(f"🔺 Anomaly threshold ({percentile}th percentile): {threshold:.4f}")
+print(f"\U0001F4C8 Anomaly threshold ({percentile}th percentile): {threshold:.4f}")
+
 
 df_raw["anomaly_score"] = scores
 df_raw["is_anomaly"] = scores > threshold
 
 # === Rule-Based Heuristics ===
-anomaly_keywords = ["[ERR]", "[WRN]","[CRIT]"]
+anomaly_keywords = ["[ERR]", "[WRN]", "[CRIT]"]
 df_raw["rule_based_flag"] = df_raw["message"].apply(
     lambda x: any(kw in x for kw in anomaly_keywords)
 )
 
 # === Whitelist Logs with [INF] or [DBG] ===
-whitelist_keywords = ["[INF]", "[DBG]","[OK]"]
+whitelist_keywords = ["[INF]", "[DBG]", "[OK]"]
 df_raw["is_whitelisted"] = df_raw["message"].apply(
     lambda x: any(kw in x for kw in whitelist_keywords)
 )
 
 df_raw.loc[df_raw["is_whitelisted"], "is_anomaly"] = False
 df_raw.loc[df_raw["is_whitelisted"], "rule_based_flag"] = False
-df_raw.loc[df_raw["is_whitelisted"], "combined_anomaly"] = False
 
+# === Combined Anomaly ===
 df_raw["combined_anomaly"] = df_raw["is_anomaly"] | df_raw["rule_based_flag"]
 
 # === Confidence Score Calculation ===
@@ -105,9 +116,9 @@ df_raw["confidence_score"] = df_raw["confidence_score"].round(4)
 
 # === Contextual Token Explanations ===
 token_insight_map = {
-     "CRIT": "critical failure event",
-     "ERR": "indicates a system failure",
-     "WRN": "system degraded",
+    "CRIT": "critical failure event",
+    "ERR": "indicates a system failure",
+    "WRN": "system degraded",
 }
 
 def token_contextual_explanation(tokens):
@@ -124,7 +135,7 @@ enhanced_explanations = []
 for i in range(len(df_raw)):
     if df_raw.loc[i, 'is_whitelisted']:
         explanation = (
-            f"No anomaly detected in this log. The content aligns with expected patterns for normal operations."
+            "No anomaly detected in this log. The content aligns with expected patterns for normal operations."
         )
     else:
         token_losses = losses[i]
@@ -136,8 +147,8 @@ for i in range(len(df_raw)):
         if df_raw.loc[i, 'combined_anomaly']:
             explanation = (
                 f"This log shows unusual patterns with tokens: {detailed_explanation}. "
-                f"These contributed significantly to the anomaly score. "
-                f"It was flagged as anomalous because of high model loss and/or matching critical keywords."
+                "These contributed significantly to the anomaly score. "
+                "It was flagged as anomalous because of high model loss and/or matching critical keywords."
             )
         else:
             if df_raw.loc[i, 'rule_based_flag']:
@@ -162,14 +173,15 @@ mlm_percent = (mlm_anomalies / total_logs) * 100
 rule_percent = (rule_anomalies / total_logs) * 100
 combined_percent = (combined_anomalies / total_logs) * 100
 
-print(f"\n📊 Total MLM-Detected Anomalies: {mlm_anomalies} ({mlm_percent:.2f}%)")
-print(f"\n📊 Total Rule-Based Anomalies: {rule_anomalies} ({rule_percent:.2f}%)")
-print(f"\n📊 Total Combined Anomalies: {combined_anomalies} ({combined_percent:.2f}%)")
+print(f"\n\U0001F4CA Total MLM-Detected Anomalies: {mlm_anomalies} ({mlm_percent:.2f}%)")
+print(f"\n\U0001F4CA Total Rule-Based Anomalies: {rule_anomalies} ({rule_percent:.2f}%)")
+print(f"\n\U0001F4CA Total Combined Anomalies: {combined_anomalies} ({combined_percent:.2f}%)")
 
 # === Save CSV ===
 df_raw.to_csv(output_csv, index=False)
 print(f"\n✅ Anomalies saved to: {output_csv}")
 
+# === HTML report generation ===
 # === Plotly Charts ===
 # Bar Chart
 bar_fig = go.Figure(data=[
