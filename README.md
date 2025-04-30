@@ -6,11 +6,8 @@
 
 
 ## 📂 Project Structure
+```
 logbert_ceph_anomaly_detection/
-|-data/
-|     |-eval_data/
-|     |-processed_logs/
-
 │── data/
 │       ├───eval_data/                          # Models training historical evaluation data 
 |       ├───processed_logs/                     # Processed and tokenized dataset 
@@ -34,7 +31,7 @@ logbert_ceph_anomaly_detection/
 │       ├── anomalies_detection_report.py       # Detection of anomalies script using trained models
 │── requirements.txt                            # Python dependencies
 │── README.md                                   # Project documentation
-
+```
 ## 🚀 Setup Instructions
 
 ### 1. Install Dependencies
@@ -58,7 +55,7 @@ python scripts/pretrained_mlm_model_train.py --chunked
 ```sh
 python scripts/finetuned_mlm_model_train.py --chunked
 ```
-### 5. Visualize Model Metrics and Reporting
+### 5. Visualize Model Metrics and Anomaly Detection Reporting
 ```sh
 python scripts/visualization_metrics.py
 python scripts/anomalies_detection_report.py 
