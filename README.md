@@ -57,9 +57,6 @@ python scripts/finetuned_mlm_model_train.py --chunked
 ### 5. Visualize Model Metrics and Reporting
 ```sh
 python scripts/visualization_metrics.py
-
-### 6. Anomaly detection and Reporting
-```sh
 python scripts/anomalies_detection_report.py 
 ```
 ## 📊 Results
