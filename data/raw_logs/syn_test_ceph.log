@@ -1,0 +1,500 @@
+2025-04-27 18:41:35 log_channel(cluster) log [ERR] : OSD 10 failure: unable to recover data from 496
+2025-04-27 18:40:16 log_channel(network) log [DBG] : heartbeat received from mon.3
+2025-04-27 18:44:50 log_channel(client) log [INF] : object read completed by client 2162
+2025-04-27 18:39:42 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:43:25 log_channel(cluster) log [DBG] : recovery completed on osd.6
+2025-04-27 18:41:20 log_channel(cluster) log [DBG] : OSD 8 backfill completed
+2025-04-27 18:45:04 log_channel(mds) log [INF] : MDS.3 session with client.2463 established
+2025-04-27 18:41:10 log_channel(osd) log [CRIT] : full OSD 1 [no_space_left]
+2025-04-27 18:41:19 log_channel(cluster) log [ERR] : OSD 4 failed to recover from 500 after 110s
+2025-04-27 18:43:02 log_channel(rbd) log [DBG] : RBD snapshot 'snap-117' created for image 'rbd-image-9'
+2025-04-27 18:43:35 log_channel(network) log [DBG] : heartbeat received from mon.2
+2025-04-27 18:39:44 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:44:09 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-2' completed successfully
+2025-04-27 18:42:33 log_channel(cluster) log [INF] : snapshot 862 created
+2025-04-27 18:44:52 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:40:01 log_channel(rgw) log [INF] : RGW user 'user-12' authenticated successfully
+2025-04-27 18:41:40 log_channel(mon) log [ERR] : authentication failure for monitor 4
+2025-04-27 18:44:15 log_channel(rgw) log [INF] : RGW user 'user-4' authenticated successfully
+2025-04-27 18:41:27 log_channel(cluster) log [WRN] : OSD 3 is down: I/O error
+2025-04-27 18:45:36 log_channel(cluster) log [DBG] : recovery completed for PG 103
+2025-04-27 18:41:45 log_channel(cluster) log [INF] : RADOS operation completed for pool 704
+2025-04-27 18:40:20 log_channel(pg) log [DBG] : PG 148 is clean
+2025-04-27 18:45:10 log_channel(rgw) log [DBG] : RGW bucket index updated for bucket 'bucket-14'
+2025-04-27 18:42:35 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:43:54 log_channel(cluster) log [INF] : mon.3 quorum formed with mons: mon.3,mon.1,mon.0
+2025-04-27 18:44:18 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:45:17 log_channel(rgw) log [INF] : RGW user 'user-24' authenticated successfully
+2025-04-27 18:41:35 log_channel(cluster) log [INF] : RADOS operation completed for pool 216
+2025-04-27 18:42:38 log_channel(cluster) log [INF] : RADOS operation completed for pool 497
+2025-04-27 18:45:19 log_channel(rbd) log [INF] : RBD image 'rbd-image-5' mapped to /dev/rbd5
+2025-04-27 18:40:24 log_channel(client) log [INF] : client 3843 executed command auth list successfully
+2025-04-27 18:41:02 log_channel(osd) log [CRIT] : full OSD 8 [no_space_left]
+2025-04-27 18:45:26 log_channel(rbd) log [DBG] : RBD snapshot 'snap-810' created for image 'rbd-image-8'
+2025-04-27 18:42:57 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:43:30 log_channel(cluster) log [INF] : mon.1 quorum formed with mons: mon.1,mon.2,mon.0
+2025-04-27 18:46:17 log_channel(mon) log [INF] : MON 0 beacon received
+2025-04-27 18:41:45 log_channel(cluster) log [WRN] : OSD 10 is down: no heartbeat
+2025-04-27 18:44:05 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 660
+2025-04-27 18:41:57 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:45:15 log_channel(network) log [DBG] : heartbeat received from mon.2
+2025-04-27 18:42:00 log_channel(cluster) log [DBG] : pgmap v9495: 154 pgs: 33 peering, 234 active+clean; 85141 KiB data, 90 GiB used, 51 GiB avail
+2025-04-27 18:43:10 log_channel(cluster) log [DBG] : recovery completed for PG 494
+2025-04-27 18:46:34 log_channel(cluster) log [INF] : osd 0 is healthy
+2025-04-27 18:41:04 log_channel(mds) log [INF] : MDS.0 session with client.6990 established
+2025-04-27 18:41:05 log_channel(osd) log [ERR] : read error from OSD 4 [pg=336]
+2025-04-27 18:40:05 log_channel(cluster) log [DBG] : OSD 6 backfill completed
+2025-04-27 18:45:11 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:41:53 log_channel(cluster) log [DBG] : heartbeat from OSD 4
+2025-04-27 18:45:40 log_channel(cluster) log [INF] : reweight-by-utilization applied
+2025-04-27 18:44:42 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:45:34 log_channel(cluster) log [DBG] : recovery completed on osd.5
+2025-04-27 18:46:11 log_channel(client) log [INF] : object read completed by client 2757
+2025-04-27 18:41:22 log_channel(client) log [ERR] : failed to write object [client=3241, reason=stale_session]
+2025-04-27 18:40:35 log_channel(rbd) log [DBG] : RBD snapshot 'snap-425' created for image 'rbd-image-10'
+2025-04-27 18:44:47 log_channel(cluster) log [INF] : mon.1 quorum formed with mons: mon.3,mon.2,mon.4
+2025-04-27 18:40:30 log_channel(mds) log [DBG] : MDS.0 is exporting namespace to rank 1
+2025-04-27 18:46:03 log_channel(cluster) log [DBG] : heartbeat from OSD 7
+2025-04-27 18:44:21 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:45:47 log_channel(cluster) log [DBG] : recovery completed for PG 686
+2025-04-27 18:45:50 log_channel(cluster) log [DBG] : osdmap 104: 12 total, 7 up
+2025-04-27 18:40:31 log_channel(cluster) log [INF] : osd 9 is healthy
+2025-04-27 18:40:55 log_channel(cluster) log [INF] : RADOS operation completed for pool 563
+2025-04-27 18:46:21 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:44:40 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-3' completed successfully
+2025-04-27 18:40:02 log_channel(cluster) log [DBG] : recovery completed on osd.7
+2025-04-27 18:42:46 log_channel(client) log [INF] : object read completed by client 7567
+2025-04-27 18:41:30 log_channel(cluster) log [INF] : mon.4 quorum formed with mons: mon.3,mon.0,mon.4
+2025-04-27 18:41:51 log_channel(cluster) log [INF] : osd 0 is healthy
+2025-04-27 18:45:09 log_channel(mds) log [DBG] : MDS.0 is exporting namespace to rank 0
+2025-04-27 18:42:58 log_channel(cluster) log [INF] : osd 2 is healthy
+2025-04-27 18:42:20 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:41:15 log_channel(cluster) log [INF] : mon.0 quorum formed with mons: mon.0,mon.3,mon.2
+2025-04-27 18:42:54 log_channel(cluster) log [DBG] : pgmap v7096: 484 pgs: 4 peering, 265 active+clean; 90666 KiB data, 43 GiB used, 6 GiB avail
+2025-04-27 18:45:53 log_channel(rgw) log [INF] : RGW op success: DELETE /bucket-1/object-946.bin
+2025-04-27 18:43:31 log_channel(rbd) log [INF] : RBD image 'rbd-image-3' mapped to /dev/rbd9
+2025-04-27 18:41:36 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:43:33 log_channel(cluster) log [DBG] : heartbeat from OSD 4
+2025-04-27 18:43:08 log_channel(cluster) log [DBG] : pgmap v5777: 303 pgs: 34 peering, 327 active+clean; 69464 KiB data, 24 GiB used, 51 GiB avail
+2025-04-27 18:45:45 log_channel(network) log [DBG] : heartbeat received from mon.5
+2025-04-27 18:46:52 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:40:57 log_channel(cluster) log [INF] : snapshot 599 created
+2025-04-27 18:45:56 log_channel(rgw) log [DBG] : RGW bucket index updated for bucket 'bucket-2'
+2025-04-27 18:42:28 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 570
+2025-04-27 18:43:11 log_channel(rbd) log [DBG] : RBD snapshot 'snap-661' created for image 'rbd-image-3'
+2025-04-27 18:43:27 log_channel(cluster) log [DBG] : recovery completed on osd.10
+2025-04-27 18:44:31 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-7' completed successfully
+2025-04-27 18:39:43 log_channel(cluster) log [DBG] : heartbeat from OSD 1
+2025-04-27 18:42:42 log_channel(mon) log [INF] : MON 0 beacon received
+2025-04-27 18:45:54 log_channel(cluster) log [DBG] : osdmap 146: 10 total, 9 up
+2025-04-27 18:43:03 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:46:48 log_channel(cluster) log [DBG] : heartbeat from OSD 5
+2025-04-27 18:41:34 log_channel(cluster) log [ERR] : OSD 7 failure: unable to recover data from 777
+2025-04-27 18:44:54 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:46:53 log_channel(pg) log [DBG] : PG 451 is clean
+2025-04-27 18:40:50 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-2' completed successfully
+2025-04-27 18:41:52 log_channel(cluster) log [INF] : reweight-by-utilization applied
+2025-04-27 18:45:28 log_channel(pg) log [DBG] : PG 721 scrub completed
+2025-04-27 18:41:28 log_channel(mon) log [ERR] : election timeout for monitor 5
+2025-04-27 18:41:13 log_channel(cluster) log [ERR] : OSD 6 cannot find disk, going into error state
+2025-04-27 18:46:35 log_channel(cluster) log [DBG] : pgmap v5794: 190 pgs: 13 peering, 82 active+clean; 50737 KiB data, 76 GiB used, 43 GiB avail
+2025-04-27 18:40:19 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 289
+2025-04-27 18:43:49 log_channel(mds) log [INF] : MDS.3 session with client.7015 established
+2025-04-27 18:40:59 log_channel(cluster) log [ERR] : OSD 5 failed to recover from 611 after 91s
+2025-04-27 18:43:59 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-5' completed successfully
+2025-04-27 18:41:19 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:39:49 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-4' completed successfully
+2025-04-27 18:46:49 log_channel(cluster) log [INF] : snapshot 817 created
+2025-04-27 18:41:40 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:41:23 log_channel(mon) log [CRIT] : monitor 0 clock skew detected
+2025-04-27 18:41:48 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:45:22 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-6' completed successfully
+2025-04-27 18:42:14 log_channel(cluster) log [INF] : osd 3 is healthy
+2025-04-27 18:44:16 log_channel(rgw) log [INF] : RGW op success: PUT /bucket-1/object-747.bin
+2025-04-27 18:40:18 log_channel(cluster) log [DBG] : heartbeat from OSD 5
+2025-04-27 18:40:03 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:44:55 log_channel(cluster) log [INF] : osd 1 is healthy
+2025-04-27 18:41:27 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:40:15 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:41:11 log_channel(pg) log [INF] : PG 418 active and clean
+2025-04-27 18:44:00 log_channel(mds) log [DBG] : MDS.2 updated inode cache size: 82107
+2025-04-27 18:42:25 log_channel(cluster) log [INF] : snapshot 162 created
+2025-04-27 18:41:12 log_channel(cluster) log [INF] : mon.3 quorum formed with mons: mon.4,mon.3,mon.1
+2025-04-27 18:46:40 log_channel(pg) log [DBG] : PG 345 scrub completed
+2025-04-27 18:41:17 log_channel(cluster) log [ERR] : OSD 1 failure: disk full, unable to write data
+2025-04-27 18:44:49 log_channel(cluster) log [DBG] : osdmap 179: 18 total, 10 up
+2025-04-27 18:45:52 log_channel(cluster) log [DBG] : recovery completed for PG 787
+2025-04-27 18:43:13 log_channel(network) log [DBG] : heartbeat received from mon.0
+2025-04-27 18:39:52 log_channel(pg) log [INF] : PG 279 active and clean
+2025-04-27 18:43:26 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-7' completed successfully
+2025-04-27 18:40:51 log_channel(pg) log [DBG] : PG 477 scrub completed
+2025-04-27 18:45:58 log_channel(rgw) log [INF] : RGW user 'user-14' authenticated successfully
+2025-04-27 18:40:04 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:41:32 log_channel(cluster) log [ERR] : OSD 10 failed to recover from 439 after 87s
+2025-04-27 18:40:07 log_channel(cluster) log [DBG] : osdmap 181: 16 total, 7 up
+2025-04-27 18:46:50 log_channel(cluster) log [DBG] : heartbeat from OSD 1
+2025-04-27 18:46:54 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:43:23 log_channel(mds) log [INF] : MDS.2 session with client.3293 established
+2025-04-27 18:41:09 log_channel(cluster) log [ERR] : OSD 8 failure: unable to recover data from 854
+2025-04-27 18:43:58 log_channel(cluster) log [INF] : snapshot 835 created
+2025-04-27 18:42:51 log_channel(cluster) log [DBG] : pgmap v5170: 225 pgs: 39 peering, 221 active+clean; 90115 KiB data, 42 GiB used, 89 GiB avail
+2025-04-27 18:45:57 log_channel(cluster) log [DBG] : recovery completed on osd.9
+2025-04-27 18:40:14 log_channel(rgw) log [INF] : RGW op success: GET /bucket-17/object-374.bin
+2025-04-27 18:40:27 log_channel(mds) log [DBG] : MDS.2 is exporting namespace to rank 3
+2025-04-27 18:41:49 log_channel(client) log [INF] : object read completed by client 8905
+2025-04-27 18:41:30 log_channel(client) log [ERR] : client 6421 disconnected unexpectedly
+2025-04-27 18:41:23 log_channel(cluster) log [DBG] : osdmap 162: 18 total, 5 up
+2025-04-27 18:41:48 log_channel(mon) log [ERR] : authentication failure for monitor 1
+2025-04-27 18:42:32 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:42:45 log_channel(mds) log [DBG] : MDS.1 is exporting namespace to rank 0
+2025-04-27 18:39:54 log_channel(rbd) log [DBG] : RBD snapshot 'snap-891' created for image 'rbd-image-6'
+2025-04-27 18:42:18 log_channel(cluster) log [DBG] : recovery completed on osd.5
+2025-04-27 18:46:22 log_channel(cluster) log [DBG] : osdmap 100: 10 total, 6 up
+2025-04-27 18:45:27 log_channel(cluster) log [DBG] : recovery completed for PG 717
+2025-04-27 18:41:31 log_channel(cluster) log [ERR] : OSD 8 disk corruption detected, data may be lost
+2025-04-27 18:44:57 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:43:22 log_channel(network) log [DBG] : heartbeat received from mon.2
+2025-04-27 18:43:04 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:44:46 log_channel(pg) log [DBG] : PG 564 scrub completed
+2025-04-27 18:45:06 log_channel(mds) log [DBG] : MDS.1 updated inode cache size: 63549
+2025-04-27 18:41:36 log_channel(cluster) log [WRN] : OSD 6 is down: I/O error
+2025-04-27 18:40:28 log_channel(rgw) log [INF] : RGW op success: DELETE /bucket-6/object-417.bin
+2025-04-27 18:43:46 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:43:06 log_channel(cluster) log [INF] : osd 1 is healthy
+2025-04-27 18:41:37 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:39:39 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:43:17 log_channel(client) log [INF] : object read completed by client 3378
+2025-04-27 18:44:56 log_channel(cluster) log [DBG] : OSD 7 backfill completed
+2025-04-27 18:40:32 log_channel(cluster) log [DBG] : heartbeat from OSD 2
+2025-04-27 18:41:37 log_channel(osd) log [ERR] : read error from OSD 1 [pg=909]
+2025-04-27 18:42:08 log_channel(cluster) log [DBG] : recovery completed on osd.10
+2025-04-27 18:40:49 log_channel(cluster) log [DBG] : heartbeat from OSD 8
+2025-04-27 18:41:20 log_channel(cluster) log [ERR] : OSD 2 disk corruption detected, data may be lost
+2025-04-27 18:44:58 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:44:37 log_channel(mds) log [DBG] : MDS.1 updated inode cache size: 50447
+2025-04-27 18:40:40 log_channel(cluster) log [DBG] : osdmap 145: 19 total, 7 up
+2025-04-27 18:42:23 log_channel(cluster) log [DBG] : recovery completed for PG 426
+2025-04-27 18:45:02 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:41:28 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:41:34 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:44:28 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:41:25 log_channel(cluster) log [DBG] : recovery completed on osd.8
+2025-04-27 18:46:39 log_channel(cluster) log [DBG] : heartbeat from OSD 9
+2025-04-27 18:40:36 log_channel(cluster) log [DBG] : pgmap v1743: 360 pgs: 23 peering, 364 active+clean; 92929 KiB data, 89 GiB used, 48 GiB avail
+2025-04-27 18:41:44 log_channel(client) log [INF] : object read completed by client 8054
+2025-04-27 18:42:26 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:40:10 log_channel(rbd) log [INF] : RBD image 'rbd-image-2' mapped to /dev/rbd4
+2025-04-27 18:39:59 log_channel(cluster) log [INF] : RADOS operation completed for pool 681
+2025-04-27 18:39:47 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:46:26 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:41:32 log_channel(cluster) log [DBG] : heartbeat from OSD 7
+2025-04-27 18:44:38 log_channel(cluster) log [DBG] : pgmap v5782: 231 pgs: 31 peering, 89 active+clean; 83241 KiB data, 60 GiB used, 16 GiB avail
+2025-04-27 18:42:15 log_channel(cluster) log [INF] : mon.0 quorum formed with mons: mon.3,mon.0,mon.2
+2025-04-27 18:41:21 log_channel(osd) log [WRN] : degraded PG 697 [objects_missing=1]
+2025-04-27 18:40:21 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 486
+2025-04-27 18:45:30 log_channel(cluster) log [INF] : mon.2 quorum formed with mons: mon.1,mon.4,mon.0
+2025-04-27 18:40:22 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:46:10 log_channel(cluster) log [INF] : snapshot 610 created
+2025-04-27 18:43:45 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:43:40 log_channel(rgw) log [INF] : RGW op success: GET /bucket-19/object-782.bin
+2025-04-27 18:45:59 log_channel(mds) log [DBG] : MDS.3 updated inode cache size: 6066
+2025-04-27 18:39:53 log_channel(client) log [INF] : client 1448 executed command status successfully
+2025-04-27 18:41:01 log_channel(cluster) log [ERR] : OSD 5 failed to recover from 489 after 85s
+2025-04-27 18:40:52 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:43:50 log_channel(rgw) log [INF] : RGW user 'user-1' authenticated successfully
+2025-04-27 18:39:31 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 900
+2025-04-27 18:44:01 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:41:12 log_channel(osd) log [WRN] : OSD 9 heartbeat missed
+2025-04-27 18:41:13 log_channel(network) log [DBG] : heartbeat received from mon.1
+2025-04-27 18:42:40 log_channel(rgw) log [INF] : RGW user 'user-18' authenticated successfully
+2025-04-27 18:41:16 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:44:33 log_channel(cluster) log [DBG] : heartbeat from OSD 6
+2025-04-27 18:44:44 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:43:56 log_channel(mon) log [INF] : MON 0 beacon received
+2025-04-27 18:40:42 log_channel(rbd) log [DBG] : RBD snapshot 'snap-786' created for image 'rbd-image-7'
+2025-04-27 18:41:56 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 828
+2025-04-27 18:43:47 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:44:14 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:45:21 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:40:47 log_channel(mds) log [DBG] : MDS.0 is exporting namespace to rank 1
+2025-04-27 18:42:49 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:46:33 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:42:34 log_channel(cluster) log [INF] : osd 8 is healthy
+2025-04-27 18:46:41 log_channel(pg) log [DBG] : PG 985 is clean
+2025-04-27 18:46:56 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 178
+2025-04-27 18:45:32 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:43:21 log_channel(network) log [DBG] : heartbeat received from mon.2
+2025-04-27 18:42:39 log_channel(client) log [INF] : client 6330 executed command df successfully
+2025-04-27 18:39:58 log_channel(cluster) log [INF] : snapshot 205 created
+2025-04-27 18:44:22 log_channel(cluster) log [DBG] : OSD 8 backfill completed
+2025-04-27 18:39:46 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:43:43 log_channel(client) log [INF] : client 7825 executed command auth list successfully
+2025-04-27 18:46:42 log_channel(rbd) log [INF] : RBD image 'rbd-image-2' mapped to /dev/rbd9
+2025-04-27 18:41:06 log_channel(mon) log [INF] : MON 5 beacon received
+2025-04-27 18:41:01 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:40:29 log_channel(pg) log [INF] : PG 936 active and clean
+2025-04-27 18:39:55 log_channel(cluster) log [INF] : snapshot 182 created
+2025-04-27 18:40:09 log_channel(pg) log [INF] : PG 591 active and clean
+2025-04-27 18:46:00 log_channel(mds) log [DBG] : MDS.3 is exporting namespace to rank 2
+2025-04-27 18:39:50 log_channel(cluster) log [INF] : mon.3 quorum formed with mons: mon.4,mon.3,mon.2
+2025-04-27 18:46:12 log_channel(rgw) log [DBG] : RGW bucket index updated for bucket 'bucket-20'
+2025-04-27 18:41:11 log_channel(cluster) log [ERR] : MON 5 crashed due to segfault
+2025-04-27 18:42:05 log_channel(cluster) log [DBG] : heartbeat from OSD 7
+2025-04-27 18:43:24 log_channel(cluster) log [DBG] : recovery completed for PG 583
+2025-04-27 18:44:23 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:41:47 log_channel(pg) log [INF] : PG 200 active and clean
+2025-04-27 18:40:37 log_channel(rgw) log [INF] : RGW user 'user-11' authenticated successfully
+2025-04-27 18:45:39 log_channel(network) log [DBG] : heartbeat received from mon.2
+2025-04-27 18:46:19 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:42:24 log_channel(rgw) log [DBG] : RGW bucket index updated for bucket 'bucket-9'
+2025-04-27 18:43:42 log_channel(rbd) log [DBG] : RBD snapshot 'snap-428' created for image 'rbd-image-9'
+2025-04-27 18:42:03 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:43:36 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:40:33 log_channel(client) log [INF] : client 2100 executed command auth list successfully
+2025-04-27 18:42:16 log_channel(cluster) log [INF] : snapshot 902 created
+2025-04-27 18:45:24 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:43:19 log_channel(rgw) log [INF] : RGW op success: PUT /bucket-10/object-201.bin
+2025-04-27 18:44:32 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:42:19 log_channel(cluster) log [DBG] : pgmap v8867: 317 pgs: 28 peering, 338 active+clean; 56450 KiB data, 100 GiB used, 60 GiB avail
+2025-04-27 18:45:37 log_channel(rgw) log [INF] : RGW user 'user-46' authenticated successfully
+2025-04-27 18:44:04 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:45:05 log_channel(rgw) log [INF] : RGW op success: GET /bucket-10/object-513.bin
+2025-04-27 18:43:16 log_channel(rgw) log [INF] : RGW op success: PUT /bucket-16/object-552.bin
+2025-04-27 18:40:59 log_channel(cluster) log [DBG] : heartbeat from OSD 6
+2025-04-27 18:43:12 log_channel(cluster) log [INF] : osd 9 is healthy
+2025-04-27 18:43:32 log_channel(client) log [INF] : client 1923 executed command mon_status successfully
+2025-04-27 18:41:05 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-5' completed successfully
+2025-04-27 18:42:10 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:46:09 log_channel(cluster) log [INF] : RADOS operation completed for pool 479
+2025-04-27 18:46:47 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:42:56 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:45:55 log_channel(cluster) log [INF] : osd 5 is healthy
+2025-04-27 18:43:37 log_channel(cluster) log [DBG] : osdmap 145: 18 total, 10 up
+2025-04-27 18:41:29 log_channel(mds) log [DBG] : MDS.1 updated inode cache size: 17816
+2025-04-27 18:41:04 log_channel(cluster) log [WRN] : OSD 5 is down: timeout
+2025-04-27 18:45:51 log_channel(cluster) log [INF] : snapshot 382 created
+2025-04-27 18:42:52 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:39:41 log_channel(cluster) log [DBG] : heartbeat from OSD 6
+2025-04-27 18:42:13 log_channel(client) log [INF] : object read completed by client 8909
+2025-04-27 18:45:18 log_channel(pg) log [DBG] : PG 226 is clean
+2025-04-27 18:41:42 log_channel(cluster) log [DBG] : heartbeat from OSD 2
+2025-04-27 18:41:07 log_channel(cluster) log [ERR] : OSD 9 failed to recover from 853 after 50s
+2025-04-27 18:43:48 log_channel(cluster) log [DBG] : recovery completed on osd.1
+2025-04-27 18:39:56 log_channel(pg) log [DBG] : PG 622 is clean
+2025-04-27 18:43:57 log_channel(client) log [INF] : object read completed by client 4569
+2025-04-27 18:46:29 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-3' completed successfully
+2025-04-27 18:39:51 log_channel(client) log [INF] : object read completed by client 6863
+2025-04-27 18:40:00 log_channel(cluster) log [DBG] : heartbeat from OSD 6
+2025-04-27 18:43:44 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:39:57 log_channel(rbd) log [DBG] : RBD snapshot 'snap-708' created for image 'rbd-image-6'
+2025-04-27 18:42:17 log_channel(pg) log [DBG] : PG 201 scrub completed
+2025-04-27 18:44:06 log_channel(rgw) log [INF] : RGW user 'user-13' authenticated successfully
+2025-04-27 18:40:43 log_channel(rbd) log [DBG] : RBD snapshot 'snap-719' created for image 'rbd-image-4'
+2025-04-27 18:45:44 log_channel(cluster) log [INF] : mon.1 quorum formed with mons: mon.3,mon.4,mon.2
+2025-04-27 18:44:24 log_channel(rgw) log [INF] : RGW user 'user-14' authenticated successfully
+2025-04-27 18:43:52 log_channel(cluster) log [INF] : osd 6 is healthy
+2025-04-27 18:39:36 log_channel(pg) log [DBG] : PG 818 scrub completed
+2025-04-27 18:42:29 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-4' completed successfully
+2025-04-27 18:45:46 log_channel(pg) log [INF] : PG 881 active and clean
+2025-04-27 18:40:38 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:40:23 log_channel(network) log [DBG] : heartbeat received from mon.3
+2025-04-27 18:41:43 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:40:54 log_channel(pg) log [DBG] : PG 638 is clean
+2025-04-27 18:44:12 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:42:37 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:42:48 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:46:13 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 911
+2025-04-27 18:46:30 log_channel(cluster) log [DBG] : pgmap v2204: 438 pgs: 31 peering, 289 active+clean; 95481 KiB data, 81 GiB used, 42 GiB avail
+2025-04-27 18:41:14 log_channel(audit) log [INF] : auth key accepted for client 6984
+2025-04-27 18:44:51 log_channel(network) log [DBG] : heartbeat received from mon.1
+2025-04-27 18:42:09 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:41:22 log_channel(cluster) log [DBG] : pgmap v9057: 165 pgs: 7 peering, 461 active+clean; 63992 KiB data, 11 GiB used, 28 GiB avail
+2025-04-27 18:42:44 log_channel(cluster) log [DBG] : heartbeat from OSD 5
+2025-04-27 18:41:24 log_channel(cluster) log [DBG] : pgmap v3929: 414 pgs: 30 peering, 56 active+clean; 94212 KiB data, 100 GiB used, 19 GiB avail
+2025-04-27 18:43:28 log_channel(pg) log [DBG] : PG 867 is clean
+2025-04-27 18:43:05 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:45:08 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:44:30 log_channel(client) log [INF] : object read completed by client 8803
+2025-04-27 18:45:23 log_channel(cluster) log [DBG] : pgmap v9758: 363 pgs: 42 peering, 140 active+clean; 93614 KiB data, 31 GiB used, 74 GiB avail
+2025-04-27 18:40:53 log_channel(mds) log [INF] : MDS.0 session with client.8096 established
+2025-04-27 18:42:06 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:44:27 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:39:34 log_channel(pg) log [DBG] : PG 894 scrub completed
+2025-04-27 18:45:20 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:41:03 log_channel(pg) log [DBG] : PG 892 scrub completed
+2025-04-27 18:42:55 log_channel(network) log [DBG] : heartbeat received from mon.0
+2025-04-27 18:45:14 log_channel(network) log [DBG] : heartbeat received from mon.3
+2025-04-27 18:39:40 log_channel(cluster) log [DBG] : OSD 10 backfill completed
+2025-04-27 18:44:13 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:46:58 log_channel(cluster) log [DBG] : pgmap v5502: 324 pgs: 17 peering, 279 active+clean; 58985 KiB data, 2 GiB used, 67 GiB avail
+2025-04-27 18:40:34 log_channel(rgw) log [INF] : RGW op success: PUT /bucket-4/object-907.bin
+2025-04-27 18:43:55 log_channel(mds) log [DBG] : MDS.0 updated inode cache size: 94809
+2025-04-27 18:41:26 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:44:36 log_channel(mds) log [INF] : MDS.1 session with client.2262 established
+2025-04-27 18:41:02 log_channel(network) log [DBG] : heartbeat received from mon.3
+2025-04-27 18:44:59 log_channel(rbd) log [INF] : RBD image 'rbd-image-3' mapped to /dev/rbd9
+2025-04-27 18:41:10 log_channel(rgw) log [DBG] : RGW bucket index updated for bucket 'bucket-16'
+2025-04-27 18:42:41 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:46:07 log_channel(pg) log [INF] : PG 414 active and clean
+2025-04-27 18:41:54 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:41:46 log_channel(cluster) log [ERR] : MON 2 crashed due to out of memory
+2025-04-27 18:43:53 log_channel(rbd) log [DBG] : RBD snapshot 'snap-963' created for image 'rbd-image-6'
+2025-04-27 18:39:45 log_channel(mds) log [INF] : MDS.3 session with client.4773 established
+2025-04-27 18:41:18 log_channel(osd) log [CRIT] : full OSD 1 [no_space_left]
+2025-04-27 18:41:55 log_channel(cluster) log [DBG] : osdmap 140: 17 total, 5 up
+2025-04-27 18:41:03 log_channel(cluster) log [CRIT] : cluster full - no space left to create object
+2025-04-27 18:39:38 log_channel(audit) log [INF] : auth key accepted for client 7992
+2025-04-27 18:44:41 log_channel(cluster) log [DBG] : recovery completed for PG 578
+2025-04-27 18:45:42 log_channel(cluster) log [DBG] : heartbeat from OSD 10
+2025-04-27 18:44:25 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:39:35 log_channel(mds) log [DBG] : MDS.1 updated inode cache size: 18400
+2025-04-27 18:46:06 log_channel(cluster) log [INF] : osd 7 is healthy
+2025-04-27 18:41:33 log_channel(osd) log [WRN] : degraded PG 105 [objects_missing=1]
+2025-04-27 18:46:37 log_channel(pg) log [INF] : PG 913 active and clean
+2025-04-27 18:42:02 log_channel(mds) log [DBG] : MDS.3 is exporting namespace to rank 1
+2025-04-27 18:40:48 log_channel(pg) log [DBG] : PG 633 scrub completed
+2025-04-27 18:41:46 log_channel(pg) log [DBG] : PG 999 is clean
+2025-04-27 18:40:13 log_channel(mon) log [INF] : MON 0 beacon received
+2025-04-27 18:41:29 log_channel(client) log [ERR] : failed to write object [client=7950, reason=permission_denied]
+2025-04-27 18:41:25 log_channel(cluster) log [ERR] : OSD 1 disk corruption detected, data may be lost
+2025-04-27 18:43:38 log_channel(pg) log [DBG] : PG 391 scrub completed
+2025-04-27 18:41:31 log_channel(cluster) log [INF] : mon.1 quorum formed with mons: mon.1,mon.4,mon.2
+2025-04-27 18:43:14 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-7' completed successfully
+2025-04-27 18:45:00 log_channel(cluster) log [INF] : RADOS operation completed for pool 974
+2025-04-27 18:45:43 log_channel(pg) log [INF] : PG 816 active and clean
+2025-04-27 18:41:14 log_channel(client) log [ERR] : failed to write object [client=6814, reason=disk_error]
+2025-04-27 18:46:16 log_channel(pg) log [DBG] : PG 414 scrub completed
+2025-04-27 18:46:14 log_channel(rbd) log [DBG] : RBD snapshot 'snap-365' created for image 'rbd-image-5'
+2025-04-27 18:43:41 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:41:06 log_channel(client) log [CRIT] : snapshot write failed [client=4912]
+2025-04-27 18:45:12 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:42:11 log_channel(cluster) log [DBG] : pgmap v4155: 358 pgs: 45 peering, 268 active+clean; 89828 KiB data, 13 GiB used, 22 GiB avail
+2025-04-27 18:42:07 log_channel(rbd) log [DBG] : RBD snapshot 'snap-216' created for image 'rbd-image-9'
+2025-04-27 18:46:24 log_channel(rbd) log [DBG] : RBD snapshot 'snap-613' created for image 'rbd-image-3'
+2025-04-27 18:42:21 log_channel(client) log [INF] : client 6770 executed command osd tree successfully
+2025-04-27 18:41:15 log_channel(cluster) log [ERR] : OSD 1 cannot find disk, going into error statelog_channel(osd) log [WRN] : inconsistent PG 683 detected [error=unknown]
+2025-04-27 18:42:30 log_channel(pg) log [INF] : PG 356 active and clean
+2025-04-27 18:45:16 log_channel(rbd) log [INF] : RBD image 'rbd-image-8' mapped to /dev/rbd5
+2025-04-27 18:46:57 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:43:09 log_channel(cluster) log [DBG] : osdmap 137: 13 total, 10 up
+2025-04-27 18:46:27 log_channel(mds) log [DBG] : MDS.0 updated inode cache size: 90192
+2025-04-27 18:43:07 log_channel(rgw) log [INF] : RGW user 'user-10' authenticated successfully
+2025-04-27 18:43:00 log_channel(cluster) log [INF] : reweight-by-utilization applied
+2025-04-27 18:41:16 log_channel(cluster) log [ERR] : OSD 6 failure: disk full, unable to write data
+2025-04-27 18:44:45 log_channel(mds) log [INF] : MDS.1 session with client.4971 established
+2025-04-27 18:46:31 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 302
+2025-04-27 18:46:32 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:41:38 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 690
+2025-04-27 18:44:53 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-5' completed successfully
+2025-04-27 18:39:33 log_channel(pg) log [DBG] : PG 251 is clean
+2025-04-27 18:42:50 log_channel(pg) log [DBG] : PG 777 scrub completed
+2025-04-27 18:46:28 log_channel(rgw) log [INF] : RGW user 'user-46' authenticated successfully
+2025-04-27 18:42:31 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:44:26 log_channel(cluster) log [DBG] : heartbeat from OSD 8
+2025-04-27 18:46:44 log_channel(network) log [DBG] : heartbeat received from mon.2
+2025-04-27 18:45:41 log_channel(client) log [INF] : object read completed by client 6723
+2025-04-27 18:39:30 log_channel(cluster) log [DBG] : pgmap v4725: 163 pgs: 23 peering, 300 active+clean; 77570 KiB data, 52 GiB used, 27 GiB avail
+2025-04-27 18:39:29 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:45:31 log_channel(cluster) log [DBG] : recovery completed on osd.9
+2025-04-27 18:44:08 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:45:03 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 518
+2025-04-27 18:44:11 log_channel(cluster) log [DBG] : heartbeat from OSD 8
+2025-04-27 18:41:39 log_channel(mon) log [ERR] : monitor 5 failed to respond [status=DOWN]
+2025-04-27 18:44:48 log_channel(mds) log [DBG] : MDS.1 updated inode cache size: 19012
+2025-04-27 18:43:29 log_channel(pg) log [DBG] : PG 606 scrub completed
+2025-04-27 18:44:10 log_channel(cluster) log [DBG] : recovery completed for PG 961
+2025-04-27 18:41:26 log_channel(osd) log [WRN] : OSD 0 heartbeat missed
+2025-04-27 18:40:44 log_channel(cluster) log [DBG] : scrub ok
+2025-04-27 18:42:53 log_channel(pg) log [DBG] : PG 914 is clean
+2025-04-27 18:44:20 log_channel(cluster) log [DBG] : recovery completed on osd.0
+2025-04-27 18:46:15 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:43:39 log_channel(audit) log [INF] : auth key accepted for client 5717
+2025-04-27 18:46:02 log_channel(cluster) log [INF] : snapshot 680 created
+2025-04-27 18:41:08 log_channel(mon) log [ERR] : election timeout for monitor 3
+2025-04-27 18:45:07 log_channel(cluster) log [INF] : RADOS operation completed for pool 515
+2025-04-27 18:40:46 log_channel(mgr) log [INF] : mgr module reload succeeded
+2025-04-27 18:41:09 log_channel(cluster) log [DBG] : osdmap 108: 19 total, 8 up
+2025-04-27 18:40:11 log_channel(client) log [INF] : client 9442 executed command status successfully
+2025-04-27 18:42:12 log_channel(mon) log [INF] : MON 1 beacon received
+2025-04-27 18:40:17 log_channel(cluster) log [DBG] : osdmap 162: 11 total, 9 up
+2025-04-27 18:41:38 log_channel(cluster) log [ERR] : MON 3 crashed due to out of memory
+2025-04-27 18:40:25 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:46:43 log_channel(cluster) log [DBG] : recovery completed on osd.8
+2025-04-27 18:46:38 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 893
+2025-04-27 18:41:07 log_channel(cluster) log [INF] : mon.3 quorum formed with mons: mon.0,mon.3,mon.2
+2025-04-27 18:46:45 log_channel(mds) log [INF] : MDS.0 session with client.1424 established
+2025-04-27 18:45:13 log_channel(cluster) log [INF] : reweight-by-utilization applied
+2025-04-27 18:41:00 log_channel(cluster) log [INF] : snapshot 594 created
+2025-04-27 18:41:44 log_channel(cluster) log [ERR] : MON 5 crashed due to out of memory
+2025-04-27 18:45:35 log_channel(cluster) log [INF] : osd 0 is healthy
+2025-04-27 18:41:18 log_channel(client) log [INF] : client 6763 executed command mon_status successfully
+2025-04-27 18:41:21 log_channel(cluster) log [INF] : RADOS operation completed for pool 801
+2025-04-27 18:41:41 log_channel(rgw) log [INF] : RGW user 'user-41' authenticated successfully
+2025-04-27 18:43:51 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:41:24 log_channel(cluster) log [ERR] : OSD 0 failure: disk full, unable to write data
+2025-04-27 18:46:46 log_channel(cluster) log [DBG] : osdmap 182: 14 total, 5 up
+2025-04-27 18:45:33 log_channel(mds) log [INF] : MDS.2 session with client.3094 established
+2025-04-27 18:41:43 log_channel(cluster) log [ERR] : OSD 10 cannot find disk, going into error statelog_channel(osd) log [WRN] : inconsistent PG 166 detected [error=unknown]
+2025-04-27 18:39:37 log_channel(client) log [INF] : client 1373 executed command status successfully
+2025-04-27 18:44:35 log_channel(client) log [INF] : object read completed by client 9498
+2025-04-27 18:41:59 log_channel(cluster) log [DBG] : heartbeat from OSD 8
+2025-04-27 18:40:39 log_channel(cluster) log [DBG] : osdmap 196: 10 total, 10 up
+2025-04-27 18:44:43 log_channel(cluster) log [INF] : RADOS operation completed for pool 460
+2025-04-27 18:39:32 log_channel(client) log [INF] : client 1412 executed command mon_status successfully
+2025-04-27 18:45:29 log_channel(cluster) log [INF] : RADOS operation completed for pool 630
+2025-04-27 18:42:01 log_channel(mon) log [INF] : MON 4 beacon received
+2025-04-27 18:45:49 log_channel(cluster) log [DBG] : heartbeat from OSD 6
+2025-04-27 18:46:20 log_channel(mds) log [DBG] : MDS.2 updated inode cache size: 22512
+2025-04-27 18:41:08 log_channel(mds) log [INF] : MDS.0 session with client.1104 established
+2025-04-27 18:46:18 log_channel(cluster) log [DBG] : recovery completed on osd.3
+2025-04-27 18:41:33 log_channel(cluster) log [DBG] : recovery completed for PG 241
+2025-04-27 18:46:25 log_channel(rbd) log [INF] : RBD unmap operation for image 'rbd-image-5' completed successfully
+2025-04-27 18:42:43 log_channel(cluster) log [DBG] : OSD 5 backfill completed
+2025-04-27 18:45:01 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:42:04 log_channel(rbd) log [INF] : RBD image 'rbd-image-6' mapped to /dev/rbd7
+2025-04-27 18:44:34 log_channel(cluster) log [INF] : snapshot 730 created
+2025-04-27 18:43:34 log_channel(pg) log [DBG] : PG 901 scrub completed
+2025-04-27 18:42:36 log_channel(rbd) log [INF] : RBD image 'rbd-image-6' mapped to /dev/rbd4
+2025-04-27 18:44:17 log_channel(network) log [DBG] : heartbeat received from mon.5
+2025-04-27 18:44:03 log_channel(cluster) log [DBG] : heartbeat from OSD 4
+2025-04-27 18:40:06 log_channel(cluster) log [DBG] : osdmap 162: 15 total, 5 up
+2025-04-27 18:42:47 log_channel(cluster) log [DBG] : OSD 6 backfill completed
+2025-04-27 18:46:36 log_channel(audit) log [INF] : auth key accepted for client 4804
+2025-04-27 18:40:45 log_channel(mon) log [INF] : no pending health issues
+2025-04-27 18:41:17 log_channel(cluster) log [DBG] : recovery completed on osd.0
+2025-04-27 18:41:39 log_channel(cluster) log [DBG] : auto-scaler adjusted PG count for pool 787
+2025-04-27 18:40:56 log_channel(cluster) log [INF] : reweight-by-utilization applied
+2025-04-27 18:44:39 log_channel(client) log [INF] : object read completed by client 6006
+2025-04-27 18:45:38 log_channel(mon) log [INF] : config update committed
+2025-04-27 18:46:04 log_channel(rbd) log [DBG] : RBD snapshot 'snap-114' created for image 'rbd-image-1'
+2025-04-27 18:41:42 log_channel(cluster) log [ERR] : MON 1 crashed due to out of memory
+2025-04-27 18:45:48 log_channel(mds) log [DBG] : MDS.0 updated inode cache size: 40951
+2025-04-27 18:46:55 log_channel(client) log [INF] : client 1344 executed command osd tree successfully
+2025-04-27 18:42:59 log_channel(rgw) log [INF] : RGW op success: PUT /bucket-15/object-562.bin
+2025-04-27 18:46:05 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:40:08 log_channel(pg) log [INF] : PG 287 active and clean
+2025-04-27 18:42:27 log_channel(rbd) log [INF] : RBD image 'rbd-image-6' mapped to /dev/rbd10
+2025-04-27 18:43:01 log_channel(mon) log [INF] : MON 1 beacon received
+2025-04-27 18:40:26 log_channel(audit) log [INF] : auth key accepted for client 3623
+2025-04-27 18:44:19 log_channel(cluster) log [INF] : snapshot 211 created
+2025-04-27 18:44:02 log_channel(mds) log [DBG] : MDS.3 updated inode cache size: 63995
+2025-04-27 18:40:41 log_channel(pg) log [INF] : PG 829 active and clean
+2025-04-27 18:43:15 log_channel(cluster) log [INF] : snapshot 206 created
+2025-04-27 18:44:07 log_channel(mds) log [DBG] : MDS.0 is exporting namespace to rank 2
+2025-04-27 18:45:25 log_channel(cluster) log [DBG] : pgmap v4327: 331 pgs: 42 peering, 295 active+clean; 92547 KiB data, 73 GiB used, 38 GiB avail
+2025-04-27 18:41:47 log_channel(mon) log [ERR] : election timeout for monitor 0
+2025-04-27 18:43:18 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:43:20 log_channel(mds) log [DBG] : MDS.0 is exporting namespace to rank 0
+2025-04-27 18:46:23 log_channel(cluster) log [INF] : client reconnect complete
+2025-04-27 18:41:41 log_channel(cluster) log [ERR] : MON 5 crashed due to out of memory
+2025-04-27 18:39:48 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:46:01 log_channel(rgw) log [INF] : RGW user 'user-6' authenticated successfully
+2025-04-27 18:41:00 log_channel(cluster) log [WRN] : OSD 8 is down: no heartbeat
+2025-04-27 18:40:58 log_channel(mds) log [DBG] : MDS.2 updated inode cache size: 7305
+2025-04-27 18:44:29 log_channel(cluster) log [DBG] : osdmap 148: 11 total, 8 up
+2025-04-27 18:46:51 log_channel(rgw) log [DBG] : RGW bucket index updated for bucket 'bucket-13'
+2025-04-27 18:40:12 log_channel(cluster) log [DBG] : scrub starts
+2025-04-27 18:41:58 log_channel(cluster) log [DBG] : pgmap v3291: 443 pgs: 4 peering, 76 active+clean; 87346 KiB data, 73 GiB used, 28 GiB avail
+2025-04-27 18:42:22 log_channel(cluster) log [DBG] : MDS startup completed
+2025-04-27 18:41:50 log_channel(cluster) log [INF] : snapshot 367 created
+2025-04-27 18:46:08 log_channel(cluster) log [DBG] : scrub ok
