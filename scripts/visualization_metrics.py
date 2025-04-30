@@ -9,10 +9,12 @@ import os
 # === Load CSV Files Directly ===
 eval_csv = "../data/eval_data/eval_metrics.csv"
 train_csv = "../data/eval_data/train_loss.csv"
+learning_rate_csv = "../data/eval_data/learning_rate_log.csv"
 
 # === Load Data ===
 eval_df = pd.read_csv(eval_csv)
 train_df = pd.read_csv(train_csv)
+learning_rate_df = pd.read_csv(learning_rate_csv)
 
 # === Merge on 'chunk' Only ===
 df = eval_df.merge(train_df[["chunk", "avg_train_loss"]], on="chunk", how="left")
@@ -46,7 +48,12 @@ metrics_fig.update_layout(height=1000, width=1600, title_text="Metrics by Chunk 
 loss_fig = go.Figure()
 loss_fig.add_trace(go.Scatter(x=df["chunk"], y=df["avg_train_loss"], mode='lines+markers', name="Training Loss"))
 loss_fig.add_trace(go.Scatter(x=df["chunk"], y=df["eval_loss"], mode='lines+markers', name="Validation Loss"))
-loss_fig.update_layout(title="Training and Validation Loss by Chunk", xaxis_title="Chunk Datasets", yaxis_title="Training and Validation Loss")
+loss_fig.update_layout(title="Training and Validation Loss by Chunk", xaxis_title="Chunk Datasets", yaxis_title="Loss")
+
+# === 5. Learning Rate Line Graph ===
+lr_fig = go.Figure()
+lr_fig.add_trace(go.Scatter(x=learning_rate_df["chunk"], y=learning_rate_df["avg_learning_rate"], mode='lines+markers', name="Learning Rate"))
+lr_fig.update_layout(title="Learning Rate by Chunk", xaxis_title="Chunk Datasets", yaxis_title="Learning Rate")
 
 # === HTML Dashboard Generation ===
 html_output = "../plots/model_metrics/metrics_visualization.html"
@@ -54,16 +61,24 @@ os.makedirs(os.path.dirname(html_output), exist_ok=True)
 with open(html_output, "w") as f:
     f.write("<html><head><title>Ceph AD LogBERT MLM Model Performance Dashboard</title></head><body>")
     f.write("<h1>Ceph AD LogBERT MLM Model Performance Dashboard</h1>")
+    
     f.write("<h2>Overall Metrics Table</h2>")
     f.write(overall_metrics.to_html(index=False, border=1, classes='full-width-table'))
     f.write("<style>.full-width-table { width: 100%; border-collapse: collapse; } .full-width-table th, .full-width-table td { padding: 8px; text-align: center; }</style>")
+    
     f.write("<h2>Overall Metrics Bar Graph</h2>")
     f.write(bar_fig.to_html(full_html=False, include_plotlyjs='cdn'))
+    
     f.write("<h2>Metrics by Chunk Datasets</h2>")
     f.write(metrics_fig.to_html(full_html=False, include_plotlyjs='cdn'))
+    
     f.write("<h2>Training and Validation Loss by Chunk</h2>")
     f.write(loss_fig.to_html(full_html=False, include_plotlyjs='cdn'))
+    
+    f.write("<h2>Learning Rate by Chunk</h2>")
+    f.write(lr_fig.to_html(full_html=False, include_plotlyjs='cdn'))
+    
     f.write("</body></html>")
 
 webbrowser.open('file://' + os.path.realpath(html_output))
-print(f"✅ Interactive dashboard saved to {html_output}")
+print(f"✅ Interactive dashboard updated and saved to {html_output}")
