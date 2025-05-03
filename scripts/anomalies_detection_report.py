@@ -1,4 +1,4 @@
-# === Anomaly Detection and Reporting script ===
+# === Anomaly Detection and Reporting script ======
 
 import os
 import re
@@ -11,6 +11,7 @@ import plotly.io as pio
 from transformers import BertTokenizer, BertForMaskedLM
 from datasets import Dataset
 import argparse
+from datetime import datetime
 
 # === Argument Parser ===
 parser = argparse.ArgumentParser(description="Anomaly Detection and Reporting Script")
@@ -25,6 +26,7 @@ log_file_path = args.log_file
 model_dir = args.model_dir
 output_csv = args.output_csv
 percentile = args.percentile
+report_datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 html_output_dir = "../plots/anomaly_detection"
 os.makedirs(html_output_dir, exist_ok=True)
@@ -34,7 +36,7 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 TOKENIZER = BertTokenizer.from_pretrained(model_dir)
 MAX_LENGTH = 64
 
-# === Load Logs ===
+# === Load Logs with Corrected Timestamp Extraction ===
 def extract_logs(log_path):
     def log_lines_generator():
         with open(log_path, "r", encoding="utf-8") as file:
@@ -42,7 +44,14 @@ def extract_logs(log_path):
                 line = line.strip()
                 if not line:
                     continue
-                yield {"message": line}
+                parts = line.split()
+                if len(parts) >= 2:
+                    timestamp = " ".join(parts[:2])
+                    message = " ".join(parts[2:])
+                else:
+                    timestamp = "N/A"
+                    message = line
+                yield {"timestamp": timestamp, "message": message}
     return pd.DataFrame(log_lines_generator())
 
 print("\U0001F4C4 Preprocessing logs...")
@@ -60,12 +69,10 @@ dataset = dataset.remove_columns(["message"])
 dataset = dataset.map(lambda x: {**x, "labels": x["input_ids"]})
 dataset.set_format(type="torch", columns=["input_ids", "attention_mask", "labels"])
 
-# === Load Trained Model ===
 print(f"\U0001F4E6 Loading model from: {model_dir}")
 model = BertForMaskedLM.from_pretrained(model_dir).to(DEVICE)
 model.eval()
 
-# === Score Logs ===
 print("\U0001F9B2 Scoring...")
 scores = []
 losses = []
@@ -86,17 +93,14 @@ scores = np.array(scores)
 threshold = np.percentile(scores, percentile)
 print(f"\U0001F4C8 Anomaly threshold ({percentile}th percentile): {threshold:.4f}")
 
-
 df_raw["anomaly_score"] = scores
 df_raw["is_anomaly"] = scores > threshold
 
-# === Rule-Based Heuristics ===
 anomaly_keywords = ["[ERR]", "[WRN]", "[CRIT]"]
 df_raw["rule_based_flag"] = df_raw["message"].apply(
     lambda x: any(kw in x for kw in anomaly_keywords)
 )
 
-# === Whitelist Logs with [INF] or [DBG] ===
 whitelist_keywords = ["[INF]", "[DBG]", "[OK]"]
 df_raw["is_whitelisted"] = df_raw["message"].apply(
     lambda x: any(kw in x for kw in whitelist_keywords)
@@ -105,16 +109,13 @@ df_raw["is_whitelisted"] = df_raw["message"].apply(
 df_raw.loc[df_raw["is_whitelisted"], "is_anomaly"] = False
 df_raw.loc[df_raw["is_whitelisted"], "rule_based_flag"] = False
 
-# === Combined Anomaly ===
 df_raw["combined_anomaly"] = df_raw["is_anomaly"] | df_raw["rule_based_flag"]
 
-# === Confidence Score Calculation ===
 min_score = scores.min()
 max_score = scores.max()
 df_raw["confidence_score"] = df_raw["anomaly_score"].apply(lambda x: (x - min_score) / (max_score - min_score + 1e-5))
 df_raw["confidence_score"] = df_raw["confidence_score"].round(4)
 
-# === Contextual Token Explanations ===
 token_insight_map = {
     "CRIT": "critical failure event",
     "ERR": "indicates a system failure",
@@ -130,7 +131,6 @@ def token_contextual_explanation(tokens):
             explanations.append(f"'{token}' (uncommon usage)")
     return ", ".join(explanations)
 
-# === Generate Explanations ===
 enhanced_explanations = []
 for i in range(len(df_raw)):
     if df_raw.loc[i, 'is_whitelisted']:
@@ -163,7 +163,6 @@ for i in range(len(df_raw)):
 
 df_raw["explanation"] = enhanced_explanations
 
-# === Console Output for Anomalies ===
 total_logs = len(df_raw)
 mlm_anomalies = df_raw['is_anomaly'].sum()
 rule_anomalies = df_raw['rule_based_flag'].sum()
@@ -174,48 +173,80 @@ rule_percent = (rule_anomalies / total_logs) * 100
 combined_percent = (combined_anomalies / total_logs) * 100
 
 print(f"\n\U0001F4CA Total MLM-Detected Anomalies: {mlm_anomalies} ({mlm_percent:.2f}%)")
-print(f"\n\U0001F4CA Total Rule-Based Anomalies: {rule_anomalies} ({rule_percent:.2f}%)")
-print(f"\n\U0001F4CA Total Combined Anomalies: {combined_anomalies} ({combined_percent:.2f}%)")
+print(f"\U0001F4CA Total Rule-Based Anomalies: {rule_anomalies} ({rule_percent:.2f}%)")
+print(f"\U0001F4CA Total Combined Anomalies: {combined_anomalies} ({combined_percent:.2f}%)")
 
-# === Save CSV ===
 df_raw.to_csv(output_csv, index=False)
 print(f"\n✅ Anomalies saved to: {output_csv}")
 
-# === HTML report generation ===
-# === Plotly Charts ===
+# HTML and visualization 
+df = pd.read_csv(output_csv)
 # Bar Chart
 bar_fig = go.Figure(data=[
     go.Bar(name='Anomaly Types', x=['MLM', 'Rule-Based', 'Combined'], y=[mlm_anomalies, rule_anomalies, combined_anomalies])
 ])
 bar_fig.update_layout(title='Anomaly Counts', xaxis_title='Type', yaxis_title='Count')
 bar_html = pio.to_html(bar_fig, full_html=False, include_plotlyjs=False)
+try:
+    df_raw["timestamp"] = pd.to_datetime(df_raw["timestamp"], errors='coerce')
+except Exception as e:
+    print(f"Error parsing timestamps: {e}")
 
-# === Grid-Style Heatmap (Visual Style) ===
+# Assign anomaly type for coloring
+df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
+
+# === Filter Anomalies and Categorize ===
+df_anomalies = df[df["combined_anomaly"] == True].copy()
+
+def get_anomaly_type(row):
+    if row["is_anomaly"] and not row["rule_based_flag"]:
+        return "MLM"
+    elif row["rule_based_flag"] and not row["is_anomaly"]:
+        return "Rule-Based"
+    elif row["is_anomaly"] and row["rule_based_flag"]:
+        return "Both"
+    return "Normal"
+
+df_anomalies["anomaly_type"] = df_anomalies.apply(get_anomaly_type, axis=1)
+color_map = {"MLM": "red", "Rule-Based": "orange", "Both": "purple"}
+
+# === Timestamp vs Anomaly Score Plot with Legend ===
+score_fig = go.Figure()
+
+for anomaly_type, color in color_map.items():
+    subset = df_anomalies[df_anomalies["anomaly_type"] == anomaly_type]
+    score_fig.add_trace(go.Scatter(
+        x=subset["timestamp"],
+        y=subset["anomaly_score"],
+        mode='markers',
+        name=anomaly_type,
+        marker=dict(size=8, color=color),
+        text=subset.apply(lambda row: f"{row['anomaly_type']}<br>{row['message']}", axis=1),
+        hoverinfo="text+x+y"
+    ))
+
+score_fig.update_layout(
+    title="Detected Anomalies with Anomaly Score",
+    xaxis_title="Timestamp",
+    yaxis_title="Anomaly Score",
+    height=500,
+    legend_title="Anomaly Type"
+)
+
+score_html = pio.to_html(score_fig, full_html=False, include_plotlyjs=False)
+
 norm_anomaly_score = (df_raw['anomaly_score'] - df_raw['anomaly_score'].min()) / (df_raw['anomaly_score'].max() - df_raw['anomaly_score'].min() + 1e-5)
 norm_confidence_score = df_raw['confidence_score']
 norm_combined = df_raw['combined_anomaly'].astype(int)
-
-heatmap_matrix = [
-    norm_anomaly_score.values,
-    norm_confidence_score.values,
-    norm_combined.values
-]
-
+heatmap_matrix = [norm_anomaly_score.values, norm_confidence_score.values, norm_combined.values]
 heatmap_fig = go.Figure(data=go.Heatmap(
     z=heatmap_matrix,
     x=[f"Log {i+1}" for i in df_raw.index],
     y=['Anomaly Score', 'Confidence Score', 'Combined Anomaly'],
-    colorscale=[
-        [0.0, 'blue'],
-        [0.25, 'cyan'],
-        [0.5, 'yellow'],
-        [0.75, 'orange'],
-        [1.0, 'red']
-    ],
+    colorscale=[[0.0, 'blue'], [0.25, 'cyan'], [0.5, 'yellow'], [0.75, 'orange'], [1.0, 'red']],
     zmin=0, zmax=1,
     showscale=True
 ))
-
 heatmap_fig.update_layout(
     title='Anomaly Heatmap',
     xaxis_title='Logs',
@@ -225,10 +256,9 @@ heatmap_fig.update_layout(
     height=500,
     margin=dict(l=80, r=50, t=80, b=120)
 )
-
 heatmap_html = pio.to_html(heatmap_fig, full_html=False, include_plotlyjs=False)
 
-# === Full HTML Report ===
+# === HTML Report ===
 html_content = f"""
 <html><head><title>Anomaly Detection Report</title>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -255,30 +285,33 @@ body {{
 }}
 </style></head><body>
 <h1>Anomaly Detection Report</h1>
+<p><strong>Report Generated On:</strong> {report_datetime}<br/>
+<strong>Dataset Used:</strong> {os.path.basename(log_file_path)}<br/>
+<strong>Anomaly Score Threshold ({percentile}th Percentile):</strong> {threshold:.4f}</p>
 <h2>Total Anomalies Summary</h2>
 <p><strong>Total Logs Processed:</strong> {total_logs}<br/>
 <strong>MLM-Detected Anomalies:</strong> {mlm_anomalies} ({mlm_percent:.2f}%)<br/>
 <strong>Rule-Based Anomalies:</strong> {rule_anomalies} ({rule_percent:.2f}%)<br/>
 <strong>Combined Anomalies:</strong> {combined_anomalies} ({combined_percent:.2f}%)</p><hr>
-
 <h3>Interactive Anomaly Counts Visualization</h3>{bar_html}<hr>
+<h3>Anomaly Score Chart</h3>{score_html}<hr>
+
 <h3>Anomaly Heatmap</h3>{heatmap_html}<hr>
 <h2>Detailed Log Analysis</h2>
 """
 
 for i, row in df_raw.iterrows():
     div_class = "anomaly-log" if row['combined_anomaly'] else "normal-log"
-    html_content += f"<div class='{div_class}'><p><strong>Log {i+1}:</strong> {row['message']}<br/>"
-    html_content += f"<strong>Anomaly Score:</strong> {row['anomaly_score']:.4f} | "
-    html_content += f"<strong>Confidence:</strong> {row['confidence_score']:.2f} | "
-    html_content += f"<strong>MLM Prediction:</strong> {int(row['is_anomaly'])} | "
-    html_content += f"<strong>Rule Match:</strong> {int(row['rule_based_flag'])} | "
-    html_content += f"<strong>Combined:</strong> {int(row['combined_anomaly'])}<br/>"
+    html_content += f"<div class='{div_class}'><p><strong>Timestamp:</strong> {row['timestamp']}<br/>"
+    html_content += f"<strong>Log:</strong> {row['message']}<br/>"
+    html_content += f"<strong>Anomaly Score:</strong> {row['anomaly_score']:.4f} | <strong>Confidence:</strong> {row['confidence_score']:.2f} | "
+    html_content += f"<strong>MLM Prediction:</strong> {int(row['is_anomaly'])} | <strong>Rule Match:</strong> {int(row['rule_based_flag'])} | <strong>Combined:</strong> {int(row['combined_anomaly'])}<br/>"
     html_content += f"<strong>Explanation:</strong> {row['explanation']}</p></div><hr>"
 
 html_content += "</body></html>"
 
 with open(html_file_path, "w", encoding="utf-8") as f:
     f.write(html_content)
+
 print(f"✅ Interactive HTML report generated: {html_file_path}")
 webbrowser.open(f"file://{os.path.abspath(html_file_path)}")

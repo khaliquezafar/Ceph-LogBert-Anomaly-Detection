@@ -1,4 +1,4 @@
-.*# === LogBERT Model Finetuning script with Dynamic LR Control ===
+# === LogBERT Model Finetuning script  ===
 
 import os
 import torch
