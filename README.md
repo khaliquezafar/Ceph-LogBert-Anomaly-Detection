@@ -1,4 +1,4 @@
-# Ceph Storage Anomaly Detection Using LogBERT through Log Analysis
+# Transformer-Based LogBERT Framework for Anomaly Detection in Ceph Storage Systems
 
 ## 📌 Project Overview
 
