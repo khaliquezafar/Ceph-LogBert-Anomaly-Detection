@@ -7,7 +7,7 @@
 
 ## 📂 Project Structure
 ```
-logbert_ceph_anomaly_detection/
+Ceph-LogBert-Anomaly-Detection/
 │── data/
 │       ├───eval_data/                          # Models training historical evaluation data 
 |       ├───processed_logs/                     # Processed and tokenized dataset 
